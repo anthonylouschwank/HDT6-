@@ -12,6 +12,8 @@ public class main {
         int ans1;
         ListaFactory factory = null;
         Map<String, String> mapa = null;
+        List<String> MasoJugador = new ArrayList<>();
+        String respuesta;
         while(!terminado){
             System.out.println("Bienvenido al sistema lector de cartas y variables, elige una opcion de todas");
             System.out.println("1. Leer en HashMap");
@@ -38,9 +40,29 @@ public class main {
             System.out.println("6. Mostrar todas las cartas en Orden");
             ans1 = sca.nextInt();
             if(ans1 == 1){
-
+                System.out.println("Ingrese el nombre de la carta: ");
+                sca.nextLine();
+                respuesta = sca.nextLine();
+                for (Map.Entry<String, String> entry : mapa.entrySet()) {
+                    if (entry.getKey().equalsIgnoreCase(respuesta)) {
+                        MasoJugador.add(respuesta);
+                    } else {
+                        System.out.println("La carta ingresada " + respuesta + " no esta en la lista de cartas");
+                    }
+                }
             } else if(ans1 == 2){
-
+                String tipo = "";
+                System.out.println("Ingrese el nombre de la carta: ");
+                sca.nextLine();
+                respuesta = sca.nextLine();
+                for (Map.Entry<String, String> entry : mapa.entrySet()) {
+                    if (entry.getKey().equalsIgnoreCase(respuesta)) {
+                        tipo = entry.getValue();
+                    } else {
+                        System.out.println("La carta ingresada " + respuesta + " no esta en la lista de cartas");
+                    }
+                }
+                System.out.println("El tipo de la carta  " + respuesta + " es " + tipo);
             } else if(ans1 == 3){
 
             } else if(ans1 == 4){
